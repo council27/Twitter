@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head xmlns="http://www.w3.org/1999/xhtml">
+<title>Tweet Management System</title>
+</h:head>
+
+
+<body>
+<h1>Tweet Management System</h1>
+<h:form>
+<h:inputText value=""></h:inputText>
+<h:inputText value="#{Tweet.Message}"></h:inputText>
+<h:commandButton value="submit" text="Save Tweet" action="#{TweetController.addNewTweet}"></h:commandButton>
+<h:commandButton value="submit" text="send Tweet" action="#{twitterinfo.sendTweet}"></h:commandButton>
+</h:form>
+
+<h:dataTable value="#{twitterinfo.displayTweets}" var="tweet">
+    <h:column>
+        <h:link value="#{displayTweets.getUser}" outcome="tweet">
+            <f:param name="id" value="#{displayTweets.getText}" />
+        </h:link>
+    </h:column>
+</h:dataTable>
+
+
+</body>
+
+
+</html>
